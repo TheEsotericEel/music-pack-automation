@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e
+# Block files > 20MB or media types
+limit=$((20*1024*1024))
+git diff --cached --name-only | while read -r f; do
+  [ -f "$f" ] || continue
+  sz=$(wc -c <"$f")
+  case "$f" in
+    *.mp3|*.wav|*.flac|*.ogg|*.mp4) echo "Blocked media: $f"; exit 1;;
+  esac
+  if [ "$sz" -gt "$limit" ]; then echo "Blocked large file (>20MB): $f"; exit 1; fi
+done
