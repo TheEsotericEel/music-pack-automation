@@ -1,18 +1,52 @@
 ﻿# Python
 __pycache__/
-*.pyc
-.env
-.venv
+*.py[cod]
+.venv/
 venv/
-build/
-dist/
-*.egg-info/
-# VSCode
+
+# IDE/OS
 .vscode/
-# OS
+.idea/
 .DS_Store
 Thumbs.db
-# Local outputs
+
+# Secrets / auth
+.env
+token.pickle
+client_secret.json
+playwright/.auth/
+
+# Outputs (never commit)
 dist/
-# Logs/tmp
 *_tmp/
+
+# Inputs (never commit)
+inbox/
+
+# Large / media (block anywhere)
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.m4a
+*.aac
+*.mp4
+*.mov
+*.webm
+*.mkv
+*.avi
+*.aif
+*.aiff
+*.aifc
+
+# Known heavy asset folder
+assets/preview_bg/
+
+# Allow small assets + keep empty dirs
+!dist/.gitkeep
+!inbox/.gitkeep
+!assets/names/name_list.txt
+!assets/license.txt
+!assets/license.pdf
+!assets/README.txt
+!assets/README.pdf
